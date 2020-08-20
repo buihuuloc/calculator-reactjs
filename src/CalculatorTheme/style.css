@@ -1,0 +1,16 @@
+.Theme {
+    margin:10px;
+    background: black;
+    border-radius: 50px;
+    color: white;
+    height: 900px;
+    padding: 20px;
+    position: relative;
+    width: 443px;
+}
+.Top{
+    display: flex;
+    height: 250px;
+    justify-content: space-between;
+    padding: 0 20px;
+}

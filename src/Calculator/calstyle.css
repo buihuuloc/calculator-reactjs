@@ -1,0 +1,113 @@
+html,
+body {
+  margin: 10;
+  padding: 10;
+  font-family: sans-serif;
+  /* background-image: url('../assets/images/bg.jpg'); */
+}
+.wrapper {
+  width: 400px;
+  height: 600px;
+  margin:10px 10px;
+}
+
+button {
+  font-size: 2rem;
+  border: 1px solid rgb(187, 184, 184);
+}
+.modifiers button {
+  background-color: #ccc;
+}
+.operations button {
+  background-color: rgb(139, 165, 139);
+}
+.digits button {
+  background-color: #efefef;
+}
+
+.wrapper,
+.subgrid {
+  display: grid;
+}
+.wrapper {
+  grid-template-areas:
+    "total total total total"
+    "digit digit digit oper"
+    "digit digit digit oper"
+    "digit digit digit oper"
+    "digit digit digit oper"
+    "modif modif modif oper";
+  grid-auto-columns: 26%;
+}
+.show-input {
+  grid-area: total;
+  
+}
+.modifiers {
+  grid-area: modif;
+}
+.operations {
+  grid-area: oper;
+}
+.digits {
+  grid-area: digit;
+}
+.digit-button{
+}
+
+.show-input {
+  display: flex;
+  /* justify-content: flex-start; */
+  /* align-items: center; */
+  /* font-size: 2rem; */
+  margin: 0px 0px 00px 20px ;
+  font-size: 3.2em;
+
+}
+
+.modifiers {
+  grid-auto-flow: column;
+  /* grid-auto-columns: 1fr; */
+}
+
+.digits {
+  display: flex;
+  flex-wrap: wrap;
+}
+.digits button {
+  flex: 1 0 20%;
+  font-size: 2em;
+  margin: 10px 10px;
+  color: #FFF;
+  text-shadow: 1px 1px rgb(50, 50, 50,0.5);
+  background-color: rgb(255, 255, 255,0.2);
+  border-radius: 50%;
+  outline-color: rgb(255, 255, 255,0.2);
+}
+.operations button {
+  flex: 1 0 20%;
+  font-size: 2em;
+  margin: 10px 10px;
+  color: #FFF;
+  text-shadow: 1px 2px rgb(50, 50, 50,0.5);
+  background-color: rgba(255, 153, 0, 0.9);
+  border-radius: 50%;
+  outline-color: rgb(255, 255, 255,0.2);
+}
+.modifiers button {
+  flex: 1 0 26%;
+  font-size: 2em;
+  margin: 10px 10px;
+  color: #FFF;
+  text-shadow: 1px 2px rgb(50, 50, 50,0.5);
+  background-color: rgba(74, 77, 80, 0.2);
+  border-radius: 0.2em;
+  outline-color: rgb(255, 255, 255,0.2);
+}
+.digits button:hover{
+  background-color: rgba(125, 248, 10, 0.2);
+}
+/* .digits span:hover{
+  font-size: 3em; 
+  transition: cubic-bezier(0.075, 0.82, 0.165, 0.2f);
+} */
