@@ -42,22 +42,6 @@ const Calculator = () => {
   ];
   const operations = ["*", "+", "-", "%", "/"];
 
-  const opBtns = [];
-  ["+", "-", "*", "/"].forEach((item) => {
-    opBtns.push(
-      <button
-        className="digit-button"
-        onClick={(e) => {
-          handleDigitInput(e.target.value);
-        }}
-        value={item}
-        key={item}
-      >
-        {item}
-      </button>
-    );
-  });
-
   useEffect(() => {
     document.addEventListener("keydown", hanldeKeyDown);
     return () => {
@@ -78,7 +62,7 @@ const Calculator = () => {
   const handleDigitInput = (input) => {
     const lastInput = data[data.length - 1];
     //Check the first number if zero
-    if (data.length == 0 && input === "0") return;
+    if (data.length === 0 && input === "0") return;
     if (operations.includes(lastInput) && operations.includes(input)) return;
     setData(data + input);
   };
