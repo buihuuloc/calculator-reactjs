@@ -1,0 +1,42 @@
+.Button {
+    align-items: center;
+    background: #333;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    font-size: 45px;
+    height: 100px;
+    justify-content: center;
+    width: 100px;
+    transition: filter 0.3s ease-in;
+}
+
+.Button.function {
+    color: black;
+    background: #a5a5a5;
+  }
+  
+.Button.operator {
+background: #f1a33c;
+}
+.Button.modifier{
+    background: #a5a5a5;
+    width: 120px;
+    border-radius: 57.5px;
+    position: relative;
+    
+}
+
+.Button.zero {
+    width: 180px;
+    grid-column: 1 / span 2;
+    border-radius: 57.5px;
+    position: relative;
+    justify-content: flex-start;
+    padding-left: 43px;
+  }
+
+.Button:active,
+.Button:focus {
+  filter: brightness(130%);
+}

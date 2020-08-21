@@ -1,9 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
 import "./style.css";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import Calculator from "../Calculator/Calculator";
 function CalculatorTheme() {
   const [time, setTime] = useState(new Date());
+  useEffect(()=>{
+     setTime(new Date()); 
+  },[new Date().getMinutes()]);
   return (
     <div className="Theme">
       <div className="Top">

@@ -3,14 +3,13 @@
     background: black;
     border-radius: 50px;
     color: white;
-    height: 900px;
-    padding: 20px;
+    height: 920px;
     position: relative;
-    width: 443px;
+    padding:20px;
+    width: 480px;
 }
 .Top{
-    display: flex;
     height: 250px;
     justify-content: space-between;
-    padding: 0 20px;
+    padding:20px;
 }
