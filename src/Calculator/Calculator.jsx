@@ -42,7 +42,6 @@ const Calculator = () => {
   ];
   const operations = ["*", "+", "-", "%", "/"];
 
-
   const opBtns = [];
   ["+", "-", "*", "/"].forEach((item) => {
     opBtns.push(
@@ -59,35 +58,35 @@ const Calculator = () => {
     );
   });
 
-    useEffect(() => {
-      document.addEventListener("keydown", hanldeKeyDown);
-      return () => {
-        document.removeEventListener("keydown", hanldeKeyDown);
-      };
-    });
+  useEffect(() => {
+    document.addEventListener("keydown", hanldeKeyDown);
+    return () => {
+      document.removeEventListener("keydown", hanldeKeyDown);
+    };
+  });
 
-    function hanldeKeyDown(event) {
-      if (availableKeys.includes(event.key)) {
-          console.log(event.key);
-        handleDigitInput(event.key);
-        return;
-      }
-      if (event.keyCode === 13) {
-        handleEvaluation();
-      }
+  function hanldeKeyDown(event) {
+    if (availableKeys.includes(event.key)) {
+      console.log(event.key);
+      handleDigitInput(event.key);
+      return;
     }
-  const handleDigitInput = (input) =>{
+    if (event.keyCode === 13) {
+      handleEvaluation();
+    }
+  }
+  const handleDigitInput = (input) => {
     const lastInput = data[data.length - 1];
     //Check the first number if zero
     if (data.length == 0 && input === "0") return;
     if (operations.includes(lastInput) && operations.includes(input)) return;
     setData(data + input);
   };
-  
-  const handleClearInput = (input)=>{
-      setData("")
-  }
-  
+
+  const handleClearInput = (input) => {
+    setData("");
+  };
+
   function handleEvaluation() {
     if (data != null && data.length > 0) {
       const lastInput = data[data.length - 1];
@@ -99,8 +98,7 @@ const Calculator = () => {
       setData(result);
     }
   }
-  
-  
+
   keys.forEach((item) => {
     calcBtns.push(
       <Button
@@ -110,33 +108,31 @@ const Calculator = () => {
       ></Button>
     );
   });
-  
-  return(
-      <div>
-    <div className="display">{data}</div>
-  <div className="digits">
-      {calcBtns}
-      <Button
-        onButtonClick={handleClearInput}
-        content="C"
-        type="modifier"
-      ></Button>
-    <Button
-        onButtonClick={(e) => {
-         if(data.length > 0)
-            setData(data.substr(0,data.length-1));
-        }}
-        content= "AC"
-        type="modifier"
-      ></Button>
-    <Button
-        onButtonClick={handleEvaluation}
-        content= "="
-        type="digit"
-      ></Button>
-    </div>
-    <div className="bottom" />
 
+  return (
+    <div>
+      <div className="display">{data}</div>
+      <div className="digits">
+        {calcBtns}
+        <Button
+          onButtonClick={handleClearInput}
+          content="C"
+          type="modifier"
+        ></Button>
+        <Button
+          onButtonClick={(e) => {
+            if (data.length > 0) setData(data.substr(0, data.length - 1));
+          }}
+          content="AC"
+          type="modifier"
+        ></Button>
+        <Button
+          onButtonClick={handleEvaluation}
+          content="="
+          type="digit"
+        ></Button>
+      </div>
+      <div className="bottom" />
     </div>
   );
 };
